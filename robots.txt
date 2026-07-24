@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Legal/utility pages carry their own noindex meta tag, so they are
+# left crawlable here (blocking them in robots would hide the noindex).
+
+Sitemap: https://smartfundsusa.com/sitemap.xml
