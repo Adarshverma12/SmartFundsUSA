@@ -120,6 +120,86 @@
     if (closeBtn) closeBtn.focus();
   }
 
+  function prefersReducedMotion() {
+    try {
+      return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    } catch (err) {
+      return false;
+    }
+  }
+
+  function softScrollTo(target) {
+    var behavior = prefersReducedMotion() ? 'auto' : 'smooth';
+    if (typeof target === 'number') {
+      window.scrollTo({ top: target, behavior: behavior });
+      return;
+    }
+    if (target && typeof target.scrollIntoView === 'function') {
+      target.scrollIntoView({ behavior: behavior, block: 'start' });
+    }
+  }
+
+  function softScrollToHash(hash) {
+    if (!hash || hash === '#') {
+      softScrollTo(0);
+      return;
+    }
+    var id = hash.replace(/^#/, '');
+    var el = document.getElementById(id);
+    if (el) softScrollTo(el);
+    else softScrollTo(0);
+  }
+
+  function isHomeHref(href) {
+    return href === '/' || href === '/index.html' || href === 'index.html';
+  }
+
+  function getHashTarget(href) {
+    if (!href) return null;
+    if (href.charAt(0) === '#') return href;
+    try {
+      var u = new URL(href, location.origin);
+      if (u.origin !== location.origin) return null;
+      var path = u.pathname.replace(/\/$/, '') || '/';
+      var here = location.pathname.replace(/\/$/, '') || '/';
+      var onHomePath =
+        path === '/' || path === '/index.html' || path.endsWith('/index.html');
+      var currentlyHome =
+        here === '/' || here === '/index.html' || here.endsWith('/index.html') || isHome;
+      if (u.hash && onHomePath && currentlyHome) return u.hash;
+      if (u.hash && path === here) return u.hash;
+    } catch (err) {}
+    return null;
+  }
+
+  function stripModalExtras(root) {
+    if (!root) return;
+    root.querySelectorAll('.cta-band').forEach(function (el) {
+      var parent = el.parentElement;
+      el.remove();
+      if (
+        parent &&
+        parent !== root &&
+        !parent.querySelector(
+          'h1, h2, h3, p, details, ul, ol, article, .grid, .form-card, .callout, .prose, .ucard'
+        )
+      ) {
+        var grand = parent.parentElement;
+        parent.remove();
+        if (
+          grand &&
+          grand !== root &&
+          (grand.matches('section.band, .band, section') || grand.classList.contains('band')) &&
+          !grand.querySelector(
+            'h1, h2, h3, p, details, ul, ol, article, .grid, .form-card, .callout, .prose'
+          )
+        ) {
+          grand.remove();
+        }
+      }
+    });
+  }
+
   function renderContent(html, page) {
     var doc = new DOMParser().parseFromString(html, 'text/html');
     var main = doc.querySelector('#main') || doc.querySelector('main');
@@ -128,6 +208,7 @@
       titleEl.textContent = 'Unavailable';
       return;
     }
+    stripModalExtras(main);
     var h1 = main.querySelector('h1');
     titleEl.textContent = h1 ? h1.textContent.trim() : page;
     bodyEl.innerHTML = main.innerHTML;
@@ -178,19 +259,44 @@
     location.href = target;
   }
 
+  function goHomeAndScroll(hash) {
+    if (isHome) {
+      closeModal();
+      softScrollToHash(hash || '#');
+      return;
+    }
+    location.href = hash && hash !== '#' ? '/#' + hash.replace(/^#/, '') : '/';
+  }
+
   document.addEventListener('click', function (e) {
     var a = e.target.closest('a');
     if (!a) return;
-    if (!isNavOrFooterLink(a)) return;
 
     var href = a.getAttribute('href') || '';
 
-    // Footer / nav Home → stay on home (close modal if open)
-    if (href === '/' || href === '/index.html' || href === 'index.html') {
-      if (modal && modal.classList.contains('is-open')) {
-        e.preventDefault();
-        closeModal();
-      }
+    // Soft scroll: same-page / home hash targets (form CTAs, skip link, etc.)
+    var hash = getHashTarget(href);
+    if (hash) {
+      e.preventDefault();
+      setMenuOpen(false);
+      closeModal();
+      // Allow modal close paint, then scroll
+      requestAnimationFrame(function () {
+        softScrollToHash(hash);
+      });
+      try {
+        history.pushState(null, '', hash === '#' ? location.pathname : hash);
+      } catch (err) {}
+      return;
+    }
+
+    if (!isNavOrFooterLink(a)) return;
+
+    // Footer / nav Home → soft scroll to top
+    if (isHomeHref(href)) {
+      e.preventDefault();
+      setMenuOpen(false);
+      goHomeAndScroll('#');
       return;
     }
 
@@ -223,6 +329,11 @@
       var openParam = new URLSearchParams(location.search).get('open');
       if (openParam && shouldOpenInModal(openParam)) {
         openPageModal(openParam);
+      } else if (location.hash) {
+        // Soft-land on hash after load (e.g. /#form)
+        requestAnimationFrame(function () {
+          softScrollToHash(location.hash);
+        });
       }
     } catch (err) {}
   }
