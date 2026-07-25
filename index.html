@@ -379,26 +379,48 @@
     <section class="showcase">
         <div class="showcase-inner">
             <div class="showcase-img">
-                <img src="assets/img/app-preview.png"
-                    alt="Smart Funds USA loan application on a phone showing a $5,000 approval" width="330" height="450"
-                    loading="lazy">
-                <div class="collage-card cc-a"><span class="cc-ic"><svg viewBox="0 0 24 24">
-                            <path d="M4 12.5l5 5L20 6.5" />
-                        </svg></span>
-                    <div>
-                        <div class="cc-t">Approved</div>
-                        <div class="cc-s">$5,000 · just now</div>
+                <div class="night-phone" role="img"
+                    aria-label="Phone at 2:07 AM showing a lender match notification and a bank deposit notification">
+                    <div class="np-notch" aria-hidden="true"></div>
+                    <div class="np-time">2:07<span>AM</span></div>
+                    <div class="np-date">Tuesday · still awake</div>
+                    <div class="np-stack" aria-hidden="true">
+                        <div class="np-note">
+                            <span class="np-ic np-ic--sf">
+                                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none">
+                                    <rect fill="#FFFFFF" x="3.5" y="17" width="5.5" height="11.5" rx="1.75"/>
+                                    <rect fill="#FFFFFF" x="12.25" y="11" width="5.5" height="17.5" rx="1.75"/>
+                                    <rect fill="#4ADE80" x="21" y="5.5" width="5.5" height="23" rx="1.75"/>
+                                    <path fill="#4ADE80" d="M23.75 2.2L27.9 7H25.5V9.2H22V7H19.6L23.75 2.2Z"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <b>SmartFunds USA</b>
+                                <p>Good news — a lender wants to work with you.</p>
+                            </div>
+                            <time>now</time>
+                        </div>
+                        <div class="np-note">
+                            <span class="np-ic np-ic--bank">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-6 9 6"/><path d="M5 10v9M12 10v9M19 10v9"/><path d="M3 20h18"/></svg>
+                            </span>
+                            <div>
+                                <b>Your Bank</b>
+                                <p>Direct deposit received: <span class="np-amt">+$2,500.00</span></p>
+                            </div>
+                            <time>tomorrow*</time>
+                        </div>
+                        <div class="np-note np-note--dim">
+                            <span class="np-ic np-ic--moon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+                            </span>
+                            <div>
+                                <b>Do Not Disturb</b>
+                                <p>Everyone else is asleep. Your request isn't.</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="collage-card cc-b"><span class="cc-ic"><svg viewBox="0 0 24 24">
-                            <path d="M3 10l9-6 9 6" />
-                            <path d="M5 10v9M19 10v9M9 10v9M15 10v9" />
-                            <path d="M3 20h18" />
-                        </svg></span>
-                    <div>
-                        <div class="cc-t">Funds sent</div>
-                        <div class="cc-s">To your bank</div>
-                    </div>
+                    <div class="np-home" aria-hidden="true"></div>
                 </div>
             </div>
             <div class="showcase-text">

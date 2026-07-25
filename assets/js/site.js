@@ -94,19 +94,50 @@
   });
 })();
 
+/* Situation chips — endless right-to-left slide on mobile (pauses on touch) */
+(function(){
+  var wrap=document.querySelector('.sit-tabs');
+  if(!wrap)return;
+  var chips=[].slice.call(wrap.children);
+  var track=document.createElement('div');track.className='sit-track';
+  var setA=document.createElement('div');setA.className='sit-set';
+  var setB=document.createElement('div');setB.className='sit-set sit-set--clone';
+  setB.setAttribute('aria-hidden','true');
+  chips.forEach(function(c){setA.appendChild(c);});
+  chips.forEach(function(c){
+    var d=c.cloneNode(true);
+    d.removeAttribute('id');d.removeAttribute('role');d.removeAttribute('aria-selected');
+    d.tabIndex=-1;
+    setB.appendChild(d);
+  });
+  track.appendChild(setA);track.appendChild(setB);
+  wrap.appendChild(track);
+  ['pointerdown','touchstart'].forEach(function(ev){
+    wrap.addEventListener(ev,function(){track.classList.add('paused');},{passive:true});
+  });
+  ['pointerup','pointercancel','touchend'].forEach(function(ev){
+    wrap.addEventListener(ev,function(){
+      setTimeout(function(){track.classList.remove('paused');},1600);
+    },{passive:true});
+  });
+})();
+
 /* "Pick your Tuesday" situation switcher — accessible tabs */
 (function(){
   var tabs=[].slice.call(document.querySelectorAll('.sit-tab'));
   if(!tabs.length)return;
   var panels=[].slice.call(document.querySelectorAll('.sit-panel'));
   function activate(tab){
+    var target=tab.getAttribute('aria-controls');
     tabs.forEach(function(t){
-      var on=t===tab;
+      var on=t.getAttribute('aria-controls')===target;
       t.classList.toggle('is-on',on);
-      t.setAttribute('aria-selected',on?'true':'false');
-      t.tabIndex=on?0:-1;
+      if(t.hasAttribute('role')){
+        t.setAttribute('aria-selected',on?'true':'false');
+        t.tabIndex=on?0:-1;
+      }
     });
-    panels.forEach(function(p){p.classList.toggle('is-on',p.id===tab.getAttribute('aria-controls'));});
+    panels.forEach(function(p){p.classList.toggle('is-on',p.id===target);});
   }
   tabs.forEach(function(t,i){
     t.addEventListener('click',function(){activate(t);});

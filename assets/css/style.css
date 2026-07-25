@@ -4441,24 +4441,64 @@ main .cta-btn:hover,
     }
 }
 
+/* chip rail scaffolding — invisible on desktop (chips wrap as before) */
+.sit-track,
+.sit-set {
+    display: contents;
+}
+
+.sit-set--clone {
+    display: none;
+}
+
 @media (max-width: 40em) {
+    /* endless right-to-left slide so every situation gets seen */
     .sit-tabs {
         flex-wrap: nowrap;
-        overflow-x: auto;
+        overflow: hidden;
         margin: 0 -1.25rem 1.1rem;
-        padding: 0 1.25rem 0.6rem;
-        scroll-snap-type: x proximity;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
+        padding: 0 0 0.6rem;
+        -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 22px, #000 calc(100% - 22px), transparent 100%);
+        mask-image: linear-gradient(90deg, transparent 0, #000 22px, #000 calc(100% - 22px), transparent 100%);
     }
 
-    .sit-tabs::-webkit-scrollbar {
-        display: none;
+    .sit-track {
+        display: flex;
+        width: max-content;
+        animation: sitSlide 26s linear infinite;
+        will-change: transform;
+    }
+
+    .sit-track.paused {
+        animation-play-state: paused;
+    }
+
+    .sit-set {
+        display: flex;
+        gap: 0.6rem;
+        padding-right: 0.6rem;
+    }
+
+    .sit-set--clone {
+        display: flex;
     }
 
     .sit-tab {
-        scroll-snap-align: start;
         flex: none;
+    }
+}
+
+@keyframes sitSlide {
+    to { transform: translateX(-50%); }
+}
+
+@media (max-width: 40em) and (prefers-reduced-motion: reduce) {
+    .sit-tabs {
+        overflow-x: auto;
+    }
+
+    .sit-track {
+        animation: none;
     }
 }
 
@@ -4679,6 +4719,177 @@ main .cta-btn:hover,
     .chat-a {
         max-width: 100%;
     }
+}
+
+/* ---------- Showcase "2:07 AM" night lock-screen visual ---------- */
+.night-phone {
+    position: relative;
+    width: min(320px, 92%);
+    margin: 0 auto;
+    background:
+        radial-gradient(120% 80% at 80% 0%, #16263A 0%, #0D1725 65%),
+        #0D1725;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 34px;
+    padding: 2rem 1.1rem 1.5rem;
+    box-shadow: 0 24px 60px rgba(13, 23, 37, 0.35);
+    overflow: hidden;
+    font-family: 'Poppins', system-ui, sans-serif;
+}
+
+/* faint stars in the night sky */
+.night-phone::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 15% 12%, rgba(255, 255, 255, 0.5) 1px, transparent 1.6px),
+        radial-gradient(circle at 78% 8%, rgba(255, 255, 255, 0.38) 1px, transparent 1.6px),
+        radial-gradient(circle at 55% 20%, rgba(255, 255, 255, 0.3) 1px, transparent 1.6px),
+        radial-gradient(circle at 90% 30%, rgba(255, 255, 255, 0.28) 1px, transparent 1.6px),
+        radial-gradient(circle at 30% 28%, rgba(255, 255, 255, 0.22) 1px, transparent 1.6px);
+    pointer-events: none;
+}
+
+.np-notch {
+    width: 96px;
+    height: 20px;
+    background: #0A121F;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 999px;
+    margin: -0.5rem auto 1rem;
+}
+
+.np-time {
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1;
+}
+
+.np-time span {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #8FA0B5;
+    margin-left: 0.3rem;
+}
+
+.np-date {
+    text-align: center;
+    color: #8FA0B5;
+    font-size: 0.8rem;
+    margin: 0.35rem 0 1.35rem;
+}
+
+.np-stack {
+    display: grid;
+    gap: 0.6rem;
+    position: relative;
+}
+
+.np-note {
+    position: relative;
+    display: flex;
+    gap: 0.65rem;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 0.7rem 0.8rem;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+    animation: npFloat 5s ease-in-out infinite alternate;
+}
+
+.np-note:nth-child(2) {
+    animation-delay: 0.8s;
+}
+
+.np-note:nth-child(3) {
+    animation-delay: 1.6s;
+}
+
+@keyframes npFloat {
+    from { transform: translateY(0); }
+    to { transform: translateY(-4px); }
+}
+
+.np-note--dim {
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: none;
+}
+
+.np-note--dim b {
+    color: #E5ECF3;
+}
+
+.np-note--dim p {
+    color: #A9B8C9;
+}
+
+.np-ic {
+    width: 34px;
+    height: 34px;
+    flex: none;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.np-ic svg {
+    width: 18px;
+    height: 18px;
+}
+
+.np-ic--sf {
+    background: #0D1725;
+}
+
+.np-ic--bank {
+    background: #E8F8EF;
+    color: #15803D;
+}
+
+.np-ic--moon {
+    background: rgba(255, 255, 255, 0.14);
+    color: #C7D2DF;
+}
+
+.np-note b {
+    display: block;
+    font-size: 0.8rem;
+    color: #0D1725;
+    line-height: 1.3;
+}
+
+.np-note p {
+    margin: 0.1rem 0 0;
+    font-size: 0.76rem;
+    color: #3A465C;
+    line-height: 1.45;
+    padding-right: 2.4rem;
+}
+
+.np-note time {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.75rem;
+    font-size: 0.62rem;
+    color: #8A94A4;
+    font-weight: 600;
+}
+
+.np-amt {
+    color: #15803D;
+    font-weight: 700;
+}
+
+.np-home {
+    width: 110px;
+    height: 4px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.25);
+    margin: 1.35rem auto 0;
 }
 
 /* ---------- Interactive hero: amount slider + mobile-first form ---------- */
