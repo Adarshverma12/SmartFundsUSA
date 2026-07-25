@@ -785,8 +785,8 @@ body.page-home nav {
 }
 
 .logo-badge {
-    width: 32px;
-    height: 32px;
+    width: 44px;
+    height: 44px;
     background: transparent;
     border-radius: 0;
     display: flex;
@@ -806,41 +806,70 @@ body.page-home nav {
 
 .logo-badge svg,
 .logo-mark {
-    width: 26px;
-    height: 26px;
+    width: 42px;
+    height: 42px;
     display: block;
 }
 
-/* Dark nav / footer: the navy arc renders white, the green arc brightens */
-.logo-badge .lm-navy,
-.footer-logo-badge .lm-navy {
+/* Dark nav / footer: hexagon frame goes white, chart brightens */
+.logo-badge .lm-hex,
+.footer-logo-badge .lm-hex {
     stroke: #FFFFFF;
+}
+.logo-badge .lm-arrow,
+.footer-logo-badge .lm-arrow {
+    stroke: #4ADE80;
 }
 .logo-badge .lm-green,
 .footer-logo-badge .lm-green {
-    stroke: #4ADE80;
+    fill: #4ADE80;
 }
 
-/* the mark animates its two arcs in on load — the match "clicking" together */
-.logo-mark .lm-navy,
-.logo-mark .lm-green {
-    stroke-dasharray: 24;
-    stroke-dashoffset: 24;
-    animation: logoDraw 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+/* hexagon draws itself, then the bars rise and the arrow shoots up */
+.logo-mark .lm-hex {
+    stroke-dasharray: 84;
+    stroke-dashoffset: 84;
+    animation: logoHex 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-.logo-mark .lm-green {
-    animation-delay: 0.18s;
+.logo-mark .lm-arrow {
+    stroke-dasharray: 20;
+    stroke-dashoffset: 20;
+    animation: logoHex 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.75s forwards;
 }
 
-@keyframes logoDraw {
+.logo-mark rect.lm-green {
+    opacity: 0;
+    transform-origin: 16px 22px;
+    animation: logoRise 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.logo-mark rect.lm-green:nth-of-type(1) { animation-delay: 0.45s; }
+.logo-mark rect.lm-green:nth-of-type(2) { animation-delay: 0.55s; }
+.logo-mark rect.lm-green:nth-of-type(3) { animation-delay: 0.65s; }
+
+.logo-mark path.lm-green {
+    opacity: 0;
+    animation: logoRise 0.35s ease-out 1.05s forwards;
+}
+
+@keyframes logoHex {
     to { stroke-dashoffset: 0; }
 }
 
+@keyframes logoRise {
+    from { opacity: 0; transform: scaleY(0.35); }
+    to { opacity: 1; transform: scaleY(1); }
+}
+
 @media (prefers-reduced-motion: reduce) {
-    .logo-mark .lm-navy,
-    .logo-mark .lm-green {
+    .logo-mark .lm-hex,
+    .logo-mark .lm-arrow {
         stroke-dashoffset: 0;
+        animation: none;
+    }
+    .logo-mark .lm-green {
+        opacity: 1;
         animation: none;
     }
 }
@@ -1910,8 +1939,8 @@ body.page-home .nav-links {
 }
 
 .footer-logo-badge {
-    width: 34px;
-    height: 34px;
+    width: 48px;
+    height: 48px;
     background: transparent;
     border-radius: 0;
     display: flex;
@@ -1922,8 +1951,8 @@ body.page-home .nav-links {
 
 .footer-logo-badge svg,
 .footer-logo-badge .logo-mark {
-    width: 26px;
-    height: 26px;
+    width: 46px;
+    height: 46px;
     display: block;
 }
 
