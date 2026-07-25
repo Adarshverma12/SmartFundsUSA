@@ -181,7 +181,7 @@
         parent &&
         parent !== root &&
         !parent.querySelector(
-          'h1, h2, h3, p, details, ul, ol, article, .grid, .form-card, .callout, .prose, .ucard'
+          'h1, h2, h3, p, details, ul, ol, article, .grid, .form-card, .callout, .prose'
         )
       ) {
         var grand = parent.parentElement;
