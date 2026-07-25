@@ -33,8 +33,7 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700;8..60,800&family=Sora:wght@500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="preload" as="image" href="assets/img/hero-couple-cutout.png?v=5" fetchpriority="high">
-    <link rel="preload" as="image" href="assets/img/hero-couple.png" media="(max-width: 991px)">
+    <link rel="preload" as="image" href="assets/img/hero-couple-cutout.png?v=5" fetchpriority="high" media="(min-width: 992px)">
     <link rel="preconnect" href="https://dj3x6xq3uws84.cloudfront.net" crossorigin>
     <script type="application/ld+json">
     {
@@ -96,6 +95,39 @@
         </div>
     </div>
 
+    <!-- MOBILE HERO — brand-new structure, shown only ≤991px.
+         The desktop hero below is untouched; the single form box is
+         placed into #mobFormSlot by site.js when the viewport is mobile. -->
+    <section class="hero-mob" id="form-mob" aria-label="Request a loan">
+        <div class="hm-bg" aria-hidden="true">
+            <span class="hm-blob hm-blob--a"></span>
+            <span class="hm-blob hm-blob--b"></span>
+            <span class="hm-blob hm-blob--c"></span>
+        </div>
+        <div class="hm-inner">
+            <p class="hm-kicker">
+                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>
+                Fast personal loans · <b>$100 – $5,000</b>
+            </p>
+            <p class="hm-ask">Money stress today — <em>gone by tomorrow.</em>*</p>
+            <div class="hm-form" id="mobFormSlot"></div>
+            <ul class="hm-trust" aria-label="Trust signals">
+                <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41L11 3H4v7l9.59 9.59a2 2 0 0 0 2.82 0l4.18-4.18a2 2 0 0 0 0-2.82z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>
+                    100% Free
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                    No score impact
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="8" r="4"/></svg>
+                    All credit types
+                </li>
+            </ul>
+        </div>
+    </section>
+
     <section class="hero" id="form">
         <div class="hero-media" aria-hidden="true">
             <img class="hero-cutout" src="assets/img/hero-couple-cutout.png?v=5" alt="" width="817" height="1316" decoding="async" fetchpriority="high">
@@ -133,151 +165,213 @@
                         <h3>Check Your Loan Options</h3>
                         <p>All credit types considered · Results in as little as 24 hours</p>
                     </div>
+                    <div class="form-amount" role="group" aria-label="How much do you need?">
+                        <span class="fa-label">I need about</span>
+                        <div class="fa-chips">
+                            <button type="button" class="fa-chip">$500</button>
+                            <button type="button" class="fa-chip is-on">$1,000</button>
+                            <button type="button" class="fa-chip">$2,500</button>
+                            <button type="button" class="fa-chip">$5,000</button>
+                        </div>
+                    </div>
                     <div class="form-box-body" id="loan-funnel">
                         <script src="https://cdn101.zeroparallel.com/form/run.php?p=DA44C05203DE4B40BE2C67FC26D19510"></script>
                     </div>
-                    <p class="form-credit-note">
-                        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
-                        Won't affect your credit score
-                    </p>
+                    <p class="hm-secure">🔒 256-bit SSL · AES-256 Encrypted · Bank-Grade Security</p>
                 </div>
             </div>
         </div>
     </section>
 
     <div class="sfx">
-        <!-- HOW IT WORKS -->
-        <section id="how" class="how-sec">
-            <div class="wrap how-wrap">
-                <span class="how-badge rv">
-                    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>
-                    How it works
-                </span>
-                <h2 class="rv">Ask once. <em>Get matched.</em></h2>
-                <p class="how-lead rv">One simple request connects you with our network of trusted lenders. No endless forms. No waiting rooms.</p>
-                <div class="how-steps rv">
-                    <article class="how-step">
-                        <div class="how-illo how-illo--ask" aria-hidden="true">
-                            <svg viewBox="0 0 64 64" fill="none">
-                                <rect x="16" y="10" width="28" height="38" rx="4" stroke="currentColor" stroke-width="2.5"/>
-                                <path d="M24 10.5v-1a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v1" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-                                <path d="M23 24h14M23 31h14M23 38h9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-                                <circle cx="44" cy="44" r="11" fill="#E8F8EF" stroke="currentColor" stroke-width="2.4"/>
-                                <path d="M39.5 44.2l3 3 6.2-6.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <span class="how-step-no">01</span>
-                        <h3>Ask once</h3>
-                        <p>Complete the secure form above in about 60 seconds. No paperwork, no branch visit, no phone queue.</p>
-                    </article>
-                    <div class="how-connector" aria-hidden="true"><span>›</span></div>
-                    <article class="how-step">
-                        <div class="how-illo how-illo--match" aria-hidden="true">
-                            <svg viewBox="0 0 64 64" fill="none">
-                                <circle cx="22" cy="26" r="9" stroke="currentColor" stroke-width="2.5"/>
-                                <path d="M10 48c1.2-7 5.8-11 12-11s10.8 4 12 11" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-                                <circle cx="44" cy="26" r="9" stroke="currentColor" stroke-width="2.5"/>
-                                <path d="M32 48c1.2-7 5.8-11 12-11s10.8 4 12 11" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-                                <path d="M31 24h4M33 22v4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-                                <circle cx="33" cy="24" r="5.5" stroke="currentColor" stroke-width="2" opacity="0.35"/>
-                            </svg>
-                        </div>
-                        <span class="how-step-no">02</span>
-                        <h3>Get matched</h3>
-                        <p>Lenders in the network review your request in real time. If one can help, you're connected straight to their offer.</p>
-                    </article>
-                    <div class="how-connector" aria-hidden="true"><span>›</span></div>
-                    <article class="how-step">
-                        <div class="how-illo how-illo--fund" aria-hidden="true">
-                            <svg viewBox="0 0 64 64" fill="none">
-                                <path d="M10 26l22-12 22 12" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
-                                <path d="M14 26v22M26 26v22M38 26v22M50 26v22" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-                                <path d="M10 48h44" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-                                <rect x="8" y="48" width="48" height="5" rx="1.5" stroke="currentColor" stroke-width="2.2"/>
-                                <circle cx="32" cy="34" r="6.5" fill="#FFF4D6" stroke="currentColor" stroke-width="2.2"/>
-                                <path d="M32 30.5v7M29.5 32.8c.7-1 1.7-1.5 2.5-1.5s1.8.4 1.8 1.3c0 1.8-3.6 1.2-3.6 3.2 0 .9.9 1.4 1.8 1.4s1.8-.5 2.4-1.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                        <span class="how-step-no">03</span>
-                        <h3>Get funded</h3>
-                        <p>Review the lender's terms, e-sign if you agree, and funds go to your bank account — often as soon as the next business day.*</p>
-                    </article>
+        <!-- LIVE REQUEST TRACKER -->
+        <section id="how" class="track-sec">
+            <div class="wrap track-wrap">
+                <div class="track-copy">
+                    <span class="kick rv">Follow the money</span>
+                    <h2 class="rv">Your request, tracked <em>like a package.</em></h2>
+                    <p class="lead rv">Most loan sites hand you three vague steps and a shrug. We'd rather show you the
+                        actual play-by-play — here's what the next 24 hours can look like after you hit submit.</p>
+                    <ul class="track-points rv">
+                        <li>
+                            <span class="tp-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg></span>
+                            <span><strong>Lenders come to you</strong><small>One request reaches the whole network at once — no calling around town.</small></span>
+                        </li>
+                        <li>
+                            <span class="tp-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+                            <span><strong>Minutes, not weeks</strong><small>Reviews happen in real time — often while your coffee is still warm.</small></span>
+                        </li>
+                        <li>
+                            <span class="tp-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-6 9 6"/><path d="M5 10v9M12 10v9M19 10v9"/><path d="M3 20h18"/></svg></span>
+                            <span><strong>Straight to your bank</strong><small>Accept an offer and funds arrive by direct deposit — no cards, no checks.*</small></span>
+                        </li>
+                    </ul>
+                    <a href="#form" class="track-btn rv">Start the clock <span aria-hidden="true">→</span></a>
                 </div>
-                <p class="how-trust rv">
-                    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
-                    Your information is safe and secure. We use bank-level security to protect your data.
-                </p>
+                <div class="track-feed rv" aria-label="Example loan request timeline">
+                    <div class="tf-top">
+                        <span class="tf-live"><i aria-hidden="true"></i>Live status</span>
+                        <span class="tf-site">smartfundsusa.com</span>
+                    </div>
+                    <ol class="tf-list">
+                        <li class="tf-item">
+                            <span class="tf-time">9:41<small>AM</small></span>
+                            <span class="tf-node" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></span>
+                            <div class="tf-body">
+                                <strong>Request sent</strong>
+                                <p>Your 60-second form is in. That was the hard part.</p>
+                            </div>
+                        </li>
+                        <li class="tf-item">
+                            <span class="tf-time">9:42<small>AM</small></span>
+                            <span class="tf-node" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6z"/><circle cx="12" cy="12" r="3"/></svg></span>
+                            <div class="tf-body">
+                                <strong>Lenders reviewing<span class="tf-dots" aria-hidden="true"><i></i><i></i><i></i></span></strong>
+                                <p>Your request is in front of the network right now.</p>
+                            </div>
+                        </li>
+                        <li class="tf-item">
+                            <span class="tf-time">9:47<small>AM</small></span>
+                            <span class="tf-node" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                            <div class="tf-body">
+                                <strong>It's a match</strong>
+                                <p>A lender wants to help. Review their terms — take it or leave it.</p>
+                            </div>
+                        </li>
+                        <li class="tf-item tf-item--money">
+                            <span class="tf-time">8:03<small>next day</small></span>
+                            <span class="tf-node" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 6.5c-.8-1.3-2.6-2-5-2-2.8 0-4.5 1.2-4.5 3.1 0 4.2 9.7 2 9.7 6.6 0 2-1.9 3.3-4.7 3.3-2.6 0-4.5-.9-5.3-2.3"/></svg></span>
+                            <div class="tf-body">
+                                <strong>Money lands</strong>
+                                <p>Direct deposit hits the checking account you already use.</p>
+                                <span class="tf-amt">+ $2,500.00</span>
+                            </div>
+                        </li>
+                    </ol>
+                    <p class="tf-note">Example timeline for illustration only. Approval isn't guaranteed, and exact
+                        timing depends on the lender and your bank.</p>
+                </div>
             </div>
         </section>
     </div>
 
     <div class="sfx">
-        <!-- WHAT CAN YOU USE IT FOR -->
-        <section id="uses" style="padding-top:0">
+        <!-- PICK YOUR TUESDAY — interactive situation switcher -->
+        <section id="uses" class="sit-sec">
             <div class="wrap">
-                <span class="kick rv">What can you use it for?</span>
-                <h2 class="rv">One loan. Whatever life throws at you.</h2>
-                <p class="lead rv">A personal loan from $100 to $5,000 can cover almost anything — here's what people
-                    request one for most.</p>
-                <div class="ugrid">
-                    <a class="ucard rv" href="#form">
-                        <img src="assets/img/Debt-consolidation.jpg"
-                            alt="Person reviewing bills to consolidate credit card debt" width="600" height="400"
-                            loading="lazy">
-                        <div class="ubody">
-                            <h3>Debt consolidation</h3>
-                            <p>Roll several balances into one simple monthly payment.</p>
-                            <span class="ulink">Check my options →</span>
+                <span class="kick rv">Real life, real reasons</span>
+                <h2 class="rv">Nobody plans a Tuesday like this.<br><em>Pick the one that sounds familiar.</em></h2>
+                <p class="lead rv">A loan request usually starts with a noise, an envelope, or a leak — not a
+                    spreadsheet. Tap a situation to see how people handle it.</p>
+                <div class="sit rv">
+                    <div class="sit-tabs" role="tablist" aria-label="Common loan situations">
+                        <button class="sit-tab is-on" id="tab-car" role="tab" aria-selected="true" aria-controls="sit-car">The car made a noise</button>
+                        <button class="sit-tab" id="tab-med" role="tab" aria-selected="false" tabindex="-1" aria-controls="sit-med">The ER bill arrived</button>
+                        <button class="sit-tab" id="tab-debt" role="tab" aria-selected="false" tabindex="-1" aria-controls="sit-debt">The cards keep winning</button>
+                        <button class="sit-tab" id="tab-home" role="tab" aria-selected="false" tabindex="-1" aria-controls="sit-home">The house fought back</button>
+                        <button class="sit-tab" id="tab-move" role="tab" aria-selected="false" tabindex="-1" aria-controls="sit-move">Two rents, one month</button>
+                        <button class="sit-tab" id="tab-wed" role="tab" aria-selected="false" tabindex="-1" aria-controls="sit-wed">The date is set</button>
+                    </div>
+                    <article class="sit-panel is-on" id="sit-car" role="tabpanel" aria-labelledby="tab-car">
+                        <div class="sit-img">
+                            <img src="assets/img/car-repair.jpg" alt="Car being serviced at a repair garage" width="600" height="400" loading="lazy">
+                            <span class="sit-tag">Car repair</span>
                         </div>
-                    </a>
-                    <a class="ucard rv" href="#form">
-                        <img src="assets/img/home-improvement.jpg"
-                            alt="Home improvement project underway in a living room" width="600" height="400"
-                            loading="lazy">
-                        <div class="ubody">
-                            <h3>Home improvement</h3>
-                            <p>Fund that repair or upgrade you've been putting off.</p>
-                            <span class="ulink">Check my options →</span>
+                        <div class="sit-body">
+                            <h3>First a rattle. Then a quote you weren't ready for.</h3>
+                            <p>A dead car isn't just a car problem — it's a get-to-work problem, a school-run problem, a
+                                whole-week problem. A small loan gets you back on the road today and spreads the repair
+                                bill out behind you.</p>
+                            <div class="sit-meta">
+                                <span><small>People often request</small><b>$500 – $2,500</b></span>
+                                <span><small>Checking your options</small><b>Free · no score impact</b></span>
+                            </div>
+                            <a class="sit-cta" href="#form">Check my options <span aria-hidden="true">→</span></a>
                         </div>
-                    </a>
-                    <a class="ucard rv" href="#form">
-                        <img src="assets/img/medical-bills.jpg"
-                            alt="Person handling a medical bill on a phone" width="600" height="400" loading="lazy">
-                        <div class="ubody">
-                            <h3>Medical bills</h3>
-                            <p>Cover out-of-pocket costs without the long wait.</p>
-                            <span class="ulink">Check my options →</span>
+                    </article>
+                    <article class="sit-panel" id="sit-med" role="tabpanel" aria-labelledby="tab-med">
+                        <div class="sit-img">
+                            <img src="assets/img/medical-bills.jpg" alt="Person handling a medical bill on a phone" width="600" height="400" loading="lazy">
+                            <span class="sit-tag">Medical bills</span>
                         </div>
-                    </a>
-                    <a class="ucard rv" href="#form">
-                        <img src="assets/img/transport.jpg"
-                            alt="Couple carrying moving boxes into a new home" width="600" height="400" loading="lazy">
-                        <div class="ubody">
-                            <h3>Moving costs</h3>
-                            <p>Deposits, movers, and everything in between.</p>
-                            <span class="ulink">Check my options →</span>
+                        <div class="sit-body">
+                            <h3>Insurance covered some. The envelope covered the rest.</h3>
+                            <p>Out-of-pocket costs never check your calendar first. Handle the bill now, keep it away
+                                from collections, and pay it down on a schedule that actually fits your month.</p>
+                            <div class="sit-meta">
+                                <span><small>People often request</small><b>$300 – $3,000</b></span>
+                                <span><small>Checking your options</small><b>Free · no score impact</b></span>
+                            </div>
+                            <a class="sit-cta" href="#form">Check my options <span aria-hidden="true">→</span></a>
                         </div>
-                    </a>
-                    <a class="ucard rv" href="#form">
-                        <img src="assets/img/weding.jpg"
-                            alt="Newlywed couple celebrating on their wedding day" width="600" height="400"
-                            loading="lazy">
-                        <div class="ubody">
-                            <h3>Wedding</h3>
-                            <p>Make the day happen without draining your savings.</p>
-                            <span class="ulink">Check my options →</span>
+                    </article>
+                    <article class="sit-panel" id="sit-debt" role="tabpanel" aria-labelledby="tab-debt">
+                        <div class="sit-img">
+                            <img src="assets/img/Debt-consolidation.jpg" alt="Person reviewing bills to consolidate credit card debt" width="600" height="400" loading="lazy">
+                            <span class="sit-tag">Debt consolidation</span>
                         </div>
-                    </a>
-                    <a class="ucard rv" href="#form">
-                        <img src="assets/img/car-repair.jpg"
-                            alt="Car being serviced at a repair garage" width="600" height="400" loading="lazy">
-                        <div class="ubody">
-                            <h3>Car repair</h3>
-                            <p>Get back on the road and back to work, fast.</p>
-                            <span class="ulink">Check my options →</span>
+                        <div class="sit-body">
+                            <h3>Five cards. Five due dates. One headache.</h3>
+                            <p>Rolling several balances into one fixed payment won't make debt fun — but it turns it
+                                into one number, on one day, with one finish line you can actually see.</p>
+                            <div class="sit-meta">
+                                <span><small>People often request</small><b>$1,000 – $5,000</b></span>
+                                <span><small>Checking your options</small><b>Free · no score impact</b></span>
+                            </div>
+                            <a class="sit-cta" href="#form">Check my options <span aria-hidden="true">→</span></a>
                         </div>
-                    </a>
+                    </article>
+                    <article class="sit-panel" id="sit-home" role="tabpanel" aria-labelledby="tab-home">
+                        <div class="sit-img">
+                            <img src="assets/img/home-improvement.jpg" alt="Home improvement project underway in a living room" width="600" height="400" loading="lazy">
+                            <span class="sit-tag">Home repair</span>
+                        </div>
+                        <div class="sit-body">
+                            <h3>The water heater retired. Effective immediately.</h3>
+                            <p>Some projects can wait for spring. Anything involving water, heat, or the roof usually
+                                can't. Fix it now — before a small repair grows itself a bigger invoice.</p>
+                            <div class="sit-meta">
+                                <span><small>People often request</small><b>$500 – $5,000</b></span>
+                                <span><small>Checking your options</small><b>Free · no score impact</b></span>
+                            </div>
+                            <a class="sit-cta" href="#form">Check my options <span aria-hidden="true">→</span></a>
+                        </div>
+                    </article>
+                    <article class="sit-panel" id="sit-move" role="tabpanel" aria-labelledby="tab-move">
+                        <div class="sit-img">
+                            <img src="assets/img/transport.jpg" alt="Couple carrying moving boxes into a new home" width="600" height="400" loading="lazy">
+                            <span class="sit-tag">Moving costs</span>
+                        </div>
+                        <div class="sit-body">
+                            <h3>New deposit, old rent, same thirty days.</h3>
+                            <p>Moving stacks every cost into one month — deposit, truck, overlap rent, and the pizza you
+                                owe your friends. A little breathing room keeps the move on schedule.</p>
+                            <div class="sit-meta">
+                                <span><small>People often request</small><b>$300 – $2,000</b></span>
+                                <span><small>Checking your options</small><b>Free · no score impact</b></span>
+                            </div>
+                            <a class="sit-cta" href="#form">Check my options <span aria-hidden="true">→</span></a>
+                        </div>
+                    </article>
+                    <article class="sit-panel" id="sit-wed" role="tabpanel" aria-labelledby="tab-wed">
+                        <div class="sit-img">
+                            <img src="assets/img/weding.jpg" alt="Newlywed couple celebrating on their wedding day" width="600" height="400" loading="lazy">
+                            <span class="sit-tag">Wedding</span>
+                        </div>
+                        <div class="sit-body">
+                            <h3>The venue wanted a date — and a deposit.</h3>
+                            <p>The best days on the calendar rarely wait for the best month in your budget. Cover the
+                                deposits now and keep your savings for the life after the party.</p>
+                            <div class="sit-meta">
+                                <span><small>People often request</small><b>$1,000 – $5,000</b></span>
+                                <span><small>Checking your options</small><b>Free · no score impact</b></span>
+                            </div>
+                            <a class="sit-cta" href="#form">Check my options <span aria-hidden="true">→</span></a>
+                        </div>
+                    </article>
                 </div>
+                <p class="sit-note rv">Ranges shown are illustrative. You can request $100 – $5,000 for almost any
+                    purpose.</p>
             </div>
         </section>
     </div>
@@ -308,29 +402,29 @@
                 </div>
             </div>
             <div class="showcase-text">
-                <p class="eyebrow">See It In Action</p>
-                <h2>From Application to <em>Approved</em> — Right on Your Phone</h2>
-                <p>No branch visits, no paperwork, no waiting on hold. Fill out one short, secure form and watch your
-                    request move from submitted to matched in real time — then review your offer whenever you're ready.
-                </p>
+                <p class="eyebrow">No Branch Required</p>
+                <h2>Handle It From the Couch — <em>Sweatpants Approved</em></h2>
+                <p>There's no appointment to book, no line to stand in, and no explaining your month to a stranger
+                    behind a desk. One quiet form on your phone, and your request is moving — often before your coffee
+                    cools.</p>
                 <div class="showcase-list">
                     <div class="sc-item">
                         <div class="sc-ic"><svg viewBox="0 0 24 24">
-                                <circle cx="12" cy="12" r="9" />
-                                <path d="M8.5 12.5l2.5 2.5 4.5-5" />
+                                <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
                             </svg></div>
                         <div>
-                            <h4>Instant, real-time matching</h4>
-                            <p>Your request reaches our lender network the moment you submit.</p>
+                            <h4>Open at 2 AM — and every other hour</h4>
+                            <p>Money stress doesn't keep business hours. The form is awake whenever you are.</p>
                         </div>
                     </div>
                     <div class="sc-item">
                         <div class="sc-ic"><svg viewBox="0 0 24 24">
-                                <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" />
+                                <path d="M20 21a8 8 0 0 0-16 0" />
+                                <circle cx="12" cy="8" r="4" />
                             </svg></div>
                         <div>
-                            <h4>Funds as fast as 24 hours</h4>
-                            <p>Accept an offer and money can land by the next business day.*</p>
+                            <h4>A form, not an interview</h4>
+                            <p>A few quiet questions, zero judgment — nobody's sitting across a desk from you.</p>
                         </div>
                     </div>
                     <div class="sc-item">
@@ -339,8 +433,8 @@
                                 <path d="M8 10V7a4 4 0 0 1 8 0v3" />
                             </svg></div>
                         <div>
-                            <h4>Bank-grade security</h4>
-                            <p>256-bit SSL and AES-256 protect every detail you share.</p>
+                            <h4>Private by design</h4>
+                            <p>256-bit SSL in transit and AES-256 at rest keep your business your business.</p>
                         </div>
                     </div>
                 </div>
@@ -349,77 +443,96 @@
         </div>
     </section>
 
-    <section class="deposit-sec">
-        <div class="deposit-inner">
-            <div class="deposit-text">
-                <p class="eyebrow">The Best Part</p>
-                <h2>Approved? The money comes <em>straight to you</em>.</h2>
-                <p>Once you accept a lender's offer, your funds are sent by direct deposit to the checking account you
-                    already use — no checks to cash, no cards to activate, no branch to visit. For many borrowers, that
-                    means money in the account as soon as the next business day.*</p>
-                <ul class="deposit-stats">
-                    <li><b>$100–$5K</b><span>Deposited to your bank</span></li>
-                    <li><b>24 hrs*</b><span>Typical funding speed</span></li>
-                    <li><b>$0</b><span>Cost to get matched</span></li>
-                </ul>
-            </div>
-            <div class="deposit-media">
-                <div class="deposit-img">
-                    <img src="assets/img/approved.png"
-                        alt="Person checking a successful loan deposit on their phone" width="430" height="317"
-                        loading="lazy">
-                    <span class="deposit-badge">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 12l5 5L20 6" />
-                        </svg>
-                        Funded
-                    </span>
+    <div class="sfx">
+        <!-- THE $0.00 RECEIPT -->
+        <section class="bill-sec">
+            <div class="wrap bill-inner">
+                <div class="bill-copy">
+                    <span class="kick rv">The part nobody believes</span>
+                    <h2 class="rv">Here's your bill from us. <em>Keep the change.</em></h2>
+                    <p class="lead rv">Smart Funds USA gets paid by lenders for making introductions — never by you.
+                        Check your options, read a real offer, walk away if you don't love it. Your total with us stays
+                        the same either way: zero.</p>
+                    <ul class="bill-points rv">
+                        <li><b>Straight to your bank</b><span>Accept an offer and funds go by direct deposit to the
+                                checking account you already use — often by the next business day.*</span></li>
+                        <li><b>No surprises later</b><span>Your lender must show every rate, fee, and term in writing
+                                before you sign anything.</span></li>
+                        <li><b>Walk-away friendly</b><span>An offer is an option, not a commitment. Saying "no thanks"
+                                costs exactly what everything else here costs.</span></li>
+                    </ul>
+                </div>
+                <div class="deposit-media rv">
+                    <div class="deposit-img">
+                        <img src="assets/img/approved.png"
+                            alt="Person checking a successful loan deposit on their phone" width="430" height="317"
+                            loading="lazy">
+                        <span class="deposit-badge">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M4 12l5 5L20 6" />
+                            </svg>
+                            Funded
+                        </span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <div class="sfx">
-        <!-- FAQ -->
-        <section id="faq" class="faq-sec">
-            <div class="wrap" style="max-width:52rem">
-                <span class="kick rv">Quick answers</span>
-                <h2 class="rv">Asked before you could ask.</h2>
-                <div class="rv">
+        <!-- FAQ — chat thread -->
+        <section id="faq" class="faq-sec chatfaq">
+            <div class="wrap chat-wrap">
+                <span class="kick rv">No hold music</span>
+                <h2 class="rv">You ask. We answer. <em>Instantly.</em></h2>
+                <div class="chat-thread rv">
+                    <p class="chat-day">Today · replies in seconds</p>
                     <details open>
-                        <summary>How fast can I get the money?</summary>
-                        <p>If a lender approves your request and you accept the offer, funds are typically sent by
-                            direct
-                            deposit as soon as the next business day. Exact timing depends on the lender and your bank.
-                        </p>
+                        <summary><span class="chat-q">How fast can I get the money?</span></summary>
+                        <div class="chat-a">
+                            <span class="chat-av" aria-hidden="true">SF</span>
+                            <p>If a lender approves your request and you accept the offer, funds are typically sent by
+                                direct deposit as soon as the next business day. Exact timing depends on the lender and
+                                your bank.</p>
+                        </div>
                     </details>
                     <details>
-                        <summary>Can I request a personal loan with bad credit?</summary>
-                        <p>Yes. All credit types are welcome to submit a request. Lenders in the network look at more
-                            than
-                            a credit score, including income and employment. Submitting a request does not guarantee
-                            approval.</p>
+                        <summary><span class="chat-q">Can I request a personal loan with bad credit?</span></summary>
+                        <div class="chat-a">
+                            <span class="chat-av" aria-hidden="true">SF</span>
+                            <p>Yes. All credit types are welcome to submit a request. Lenders in the network look at
+                                more than a credit score, including income and employment. Submitting a request does not
+                                guarantee approval.</p>
+                        </div>
                     </details>
                     <details>
-                        <summary>How much does it cost to use Smart Funds USA?</summary>
-                        <p>Nothing. Smart Funds USA is free for consumers. We are not a lender — we connect your request
-                            with lenders and lending partners who may pay us for that connection. Your lender will
-                            disclose all loan costs before you sign.</p>
+                        <summary><span class="chat-q">How much does it cost to use Smart Funds USA?</span></summary>
+                        <div class="chat-a">
+                            <span class="chat-av" aria-hidden="true">SF</span>
+                            <p>Nothing. Smart Funds USA is free for consumers. We are not a lender — we connect your
+                                request with lenders and lending partners who may pay us for that connection. Your
+                                lender will disclose all loan costs before you sign.</p>
+                        </div>
                     </details>
                     <details>
-                        <summary>Is my information safe?</summary>
-                        <p>Your request is protected with 256-bit SSL encryption in transit and stored with
-                            industry-standard AES-256 encryption. We only share your information as described in our <a
-                                href="/privacy.html">Privacy Policy</a>.</p>
+                        <summary><span class="chat-q">Is my information safe?</span></summary>
+                        <div class="chat-a">
+                            <span class="chat-av" aria-hidden="true">SF</span>
+                            <p>Your request is protected with 256-bit SSL encryption in transit and stored with
+                                industry-standard AES-256 encryption. We only share your information as described in
+                                our <a href="/privacy.html">Privacy Policy</a>.</p>
+                        </div>
                     </details>
                     <details>
-                        <summary>How much can I request?</summary>
-                        <p>You can request between $100 and $5,000. The amount you are offered depends on the lender,
-                            your
-                            state, and your financial profile.</p>
+                        <summary><span class="chat-q">How much can I request?</span></summary>
+                        <div class="chat-a">
+                            <span class="chat-av" aria-hidden="true">SF</span>
+                            <p>You can request between $100 and $5,000. The amount you are offered depends on the
+                                lender, your state, and your financial profile.</p>
+                        </div>
                     </details>
                 </div>
-                <p class="rv" style="margin-top:1rem"><a href="/faq.html">See all questions →</a></p>
+                <a class="chat-more rv" href="/faq.html"><span>Type your question…</span><b>See all answers →</b></a>
             </div>
         </section>
 
